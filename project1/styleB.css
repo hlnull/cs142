@@ -1,0 +1,33 @@
+#container {
+    display: flex;
+    
+}
+p {
+    background: #dfe1e7;
+    width: 100px;
+    height: 100px;
+    font: Tahoma;
+    font-size: 40px;
+    text-align: center;
+    border-top: 1px #687291 solid; 
+
+       /*FIXME*/
+    margin: 2px auto; 
+}
+
+.A, .C, .E {
+  background: #eeeff2;  
+}
+
+.F {
+    background: #687291;
+    border: 4px black solid;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+body {
+ font-family: Tahoma, Arial, sans-serif;
+ margin: 8px;
+}
