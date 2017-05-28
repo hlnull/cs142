@@ -1,2 +1,2 @@
-My solution to cs142.
+My solution of the [cs142](http://web.stanford.edu/class/cs142/).
 
