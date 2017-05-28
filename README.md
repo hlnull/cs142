@@ -1,1 +1,2 @@
-The projects of cs 142
+My solution to cs142.
+
