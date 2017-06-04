@@ -7,26 +7,21 @@ class DatePicker {
     }
 
     render(date) {
-        // 1. create a div add it to the document.
+        // 1. create a table add it to the document.
         var parent = document.getElementById(this.id);
-        // var div = document.createElement("div");
-        // setting border so that we can view it in the browser.
-        // div.style.border = "black";
-        // parent.appendChild(div);
-
-        // 2. add a table in the div.
         var table = document.createElement("table");
         table.style.border = "dotted black";
         var header = table.createTHead();
         parent.appendChild(table);
         
-        // 3. set table's header
+        // 2. set table's header
         var headerRow = header.insertRow(0);
         var leftArrowCell = headerRow.insertCell(0);
         leftArrowCell.innerHTML = "<";
         var monthCell = headerRow.insertCell(1);
-        // TODO: add month list
-        monthCell.innerHTML = "January";
+        var months = ["January", "February","March", "April","May", "June", "July", "August", "September",
+      "October","November","December"];
+        monthCell.innerHTML = months[date.getMonth()];
         monthCell.colSpan = "5";
         var rightArrowCell = headerRow.insertCell(2);
         rightArrowCell.innerHTML = ">";
@@ -39,17 +34,27 @@ class DatePicker {
             cell.innerHTML = daysOfWeek[i];
         }
         
-        // 3. set the contents of the table.
+        // 3. set days.
         var curDate = new Date(date.getTime());
         curDate.setDate(date.getDate() - date.getDay());
         console.log(curDate.getDate());
+        var rowIndex = 2;
+        while (true) {
+            var row = table.insertRow(rowIndex);
+            rowIndex = rowIndex + 1;
+            
+            for (var i = 0; i < 7; ++ i) {
+                var cell = row.insertCell(i);
+                cell.innerHTML = curDate.getDate();
+                curDate.setDate(curDate.getDate() + 1);
+            }
 
-        var row = table.insertRow(2);
-        var cell = row.insertCell(0);
-        cell.innerHTML = curDate.getDate();
-
+            // exit the loop
+            if (curDate.getMonth() != date.getMonth()) {
+                break;
+            }
+        }
         
-
     }
 };
 
