@@ -44,6 +44,14 @@ class DatePicker {
 
                 if (curDate.getMonth() === date.getMonth()) {
                     cell.setAttribute("id", "CurMonth");
+                        let ob = {
+                            month: curDate.getMonth() + 1,
+                            day: cell.innerHTML,
+                            year: curDate.getFullYear()
+                        };
+                    cell.addEventListener("click", () => {
+                        this.callback(this.id, ob);
+                    });
                 } else {
                     cell.setAttribute("id", "OtherMonth");
                 }
@@ -77,7 +85,7 @@ class DatePicker {
         var rightArrowCell = headerRow.insertCell(2);
         rightArrowCell.innerHTML = ">";
         rightArrowCell.setAttribute("id", "RightArrow");
-        
+
         // event handler.
         leftArrowCell.addEventListener("click", () => {
             table.remove();
