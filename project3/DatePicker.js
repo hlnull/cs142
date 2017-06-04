@@ -56,7 +56,6 @@ class DatePicker {
                 break;
             }
         }
-
         return table;
     }
 
@@ -69,7 +68,7 @@ class DatePicker {
         var monthCell = headerRow.insertCell(1);
         var months = ["January", "February","March", "April","May", "June", "July", "August", "September",
         "October","November","December"];
-        monthCell.innerHTML = months[date.getMonth()];
+        monthCell.innerHTML = months[date.getMonth()] + "   " + date.getFullYear();
         monthCell.colSpan = "5";
         var rightArrowCell = headerRow.insertCell(2);
         rightArrowCell.innerHTML = ">";
