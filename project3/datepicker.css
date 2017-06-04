@@ -1,0 +1,9 @@
+
+td#OtherMonth {
+     background-color: grey; 
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+};

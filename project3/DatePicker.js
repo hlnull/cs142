@@ -15,7 +15,7 @@ class DatePicker {
     _createCalender(date) {
         // 1. create a table add it to the document.
         var table = document.createElement("table");
-        table.style.border = "dotted black";
+        // table.style.border = "dotted black";
         
         // 2. create table's header. 
         var header = this._createCalenderHeader(table, date);
@@ -29,8 +29,9 @@ class DatePicker {
         }
         
         // 4. set normal days.
-        var curDate = new Date(date.getTime());
-        curDate.setDate(date.getDate() - date.getDay());
+        var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        var curDate = new Date(firstDay.getTime());
+        curDate.setDate(-firstDay.getDay() + 1);
         //console.log(curDate.getDate());
         var rowIndex = 2;
         while (true) {
@@ -40,6 +41,13 @@ class DatePicker {
             for (var i = 0; i < 7; ++ i) {
                 var cell = row.insertCell(i);
                 cell.innerHTML = curDate.getDate();
+
+                if (curDate.getMonth() === date.getMonth()) {
+                    cell.setAttribute("id", "CurMonth");
+                } else {
+                    cell.setAttribute("id", "OtherMonth");
+                }
+
                 curDate.setDate(curDate.getDate() + 1);
             }
 
