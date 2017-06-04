@@ -63,16 +63,21 @@ class DatePicker {
     _createCalenderHeader(table, date) {
         var header = table.createTHead();
         var headerRow = header.insertRow(0);
+
         var leftArrowCell = headerRow.insertCell(0);
         leftArrowCell.innerHTML = "<";
+        leftArrowCell.setAttribute("id", "LeftArrow");
+        
         var monthCell = headerRow.insertCell(1);
         var months = ["January", "February","March", "April","May", "June", "July", "August", "September",
         "October","November","December"];
         monthCell.innerHTML = months[date.getMonth()] + "   " + date.getFullYear();
         monthCell.colSpan = "5";
+
         var rightArrowCell = headerRow.insertCell(2);
         rightArrowCell.innerHTML = ">";
-
+        rightArrowCell.setAttribute("id", "RightArrow");
+        
         // event handler.
         leftArrowCell.addEventListener("click", () => {
             table.remove();
