@@ -7,26 +7,20 @@ class DatePicker {
     }
 
     render(date) {
-        // 1. create a table add it to the document.
+        // create calender and add it to id div.
         var parent = document.getElementById(this.id);
+        parent.appendChild(this._createCalender(date));
+    }
+
+    _createCalender(date) {
+        // 1. create a table add it to the document.
         var table = document.createElement("table");
         table.style.border = "dotted black";
-        var header = table.createTHead();
-        parent.appendChild(table);
         
-        // 2. set table's header
-        var headerRow = header.insertRow(0);
-        var leftArrowCell = headerRow.insertCell(0);
-        leftArrowCell.innerHTML = "<";
-        var monthCell = headerRow.insertCell(1);
-        var months = ["January", "February","March", "April","May", "June", "July", "August", "September",
-      "October","November","December"];
-        monthCell.innerHTML = months[date.getMonth()];
-        monthCell.colSpan = "5";
-        var rightArrowCell = headerRow.insertCell(2);
-        rightArrowCell.innerHTML = ">";
-
-        // add days of week on the second row
+        // 2. create table's header. 
+        var header = this._createCalenderHeader(table, date);
+ 
+        // 3. add days of week on the second row
         var daysOfWeek = ["Sun", "Mon","Tues","Wed","Thur","Fri","Sat"];
         var rowWeek = header.insertRow(1);
         for (var i = 0; i < 7; ++ i) {
@@ -34,10 +28,10 @@ class DatePicker {
             cell.innerHTML = daysOfWeek[i];
         }
         
-        // 3. set days.
+        // 4. set normal days.
         var curDate = new Date(date.getTime());
         curDate.setDate(date.getDate() - date.getDay());
-        console.log(curDate.getDate());
+        //console.log(curDate.getDate());
         var rowIndex = 2;
         while (true) {
             var row = table.insertRow(rowIndex);
@@ -54,7 +48,40 @@ class DatePicker {
                 break;
             }
         }
-        
+
+        return table;
+    }
+
+    /*  create header: "<  January   >" */
+    _createCalenderHeader(table, date) {
+        var header = table.createTHead();
+        var headerRow = header.insertRow(0);
+        var leftArrowCell = headerRow.insertCell(0);
+        leftArrowCell.innerHTML = "<";
+        var monthCell = headerRow.insertCell(1);
+        var months = ["January", "February","March", "April","May", "June", "July", "August", "September",
+        "October","November","December"];
+        monthCell.innerHTML = months[date.getMonth()];
+        monthCell.colSpan = "5";
+        var rightArrowCell = headerRow.insertCell(2);
+        rightArrowCell.innerHTML = ">";
+
+        // event handler.
+        leftArrowCell.addEventListener("click", () => {
+            table.remove();
+            date.setMonth(date.getMonth() - 1);
+            console.log(date);
+            this.render(date);
+        });
+
+        rightArrowCell.addEventListener("click", () => {
+            table.remove();
+            date.setMonth(date.getMonth() + 1);
+            console.log(date);
+            this.render(date);
+        });
+
+        return header;
     }
 };
 
