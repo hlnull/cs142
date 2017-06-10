@@ -1,0 +1,76 @@
+<div>
+    <h1>CS142 Project#4 Angular Example</h1>
+
+    <div class="motto-update" >Update the motto: <input type="text" ng-model="main.motto"></div> <!-- Your problem #1 motto updating widget goes here-->
+
+    <p>This page is an example of Angular view template processing. It runs with the controller
+        located in <code>components/example/exampleController.js</code>. It looks like standard
+        HTML that is extended annotations that are processed by Angular.
+    </p>
+
+    <h3>Scope to template binding</h3>
+
+    <p>Note angular replaces "<code ng-non-bindable>{{propertyName}}</code>" with the value of
+        propertyName in the controller's scope.
+        (i.e. $scope.propertyName).
+    </p>
+
+    <p>The controller sets the scope's property <code>name</code> (see the
+        assignment to <code>$scope.name</code> in <code>exampleController.js</code>) from
+        the model in the DOM which has a value of "{{name}}" so:
+    <pre class="cs142-example-code" ng-non-bindable>&lt;p&gt;My name is "{{name}}".&lt;/p&gt;</pre>
+    <p>should render as:</p>
+
+    <p class="cs142-example-output">My name is "{{name}}".</p>
+
+    <h3>Two-way Binding</h3>
+
+    <p>Angular also supports two-way binding where input into the template is pushed into the
+        scope variable. For example the following code will create an input box where the characters
+        show up in the scope property <code>textInput</code></p>
+
+    <pre class="cs142-example-code" ng-non-bindable>&lt;label&gt;Input some text: &lt;input type="text" ng-model="textInput"&gt;&lt;/label&gt;</pre>
+    <p>renders as:</p>
+    <label class="cs142-example-output">Input some text: <input type="text"
+                                                                ng-model="textInput"></label>
+
+    <p>and characters typed into the box will appear in the scope variable <code>textInput</code>
+       which currently has a value of "{{textInput}}".
+    </p>
+
+    <h3>Conditional DOM elements</h3>
+
+    <p>Angular supports conditional templates so the code:</p>
+    <pre class="cs142-example-code" ng-non-bindable>
+&lt;p&gt;A paragraph will appear between this paragraph&lt;/p&gt;
+&lt;p ng-if="textInput"&gt;This text will appear when textInput is truthy. testInput === {{textInput}}&lt;/p&gt;
+&lt;p&gt;... and this one when some characters are typed.&lt;/p&gt;</pre>
+    <p>will show the middle paragraph only if some characters have been entered into
+        <code>textInput</code>.
+        Give it a try by entering some characters in the text box above.</p>
+
+    <div class="cs142-example-output">
+        <p>A paragraph will appear between this paragraph</p>
+
+        <p ng-if="textInput">
+            This text will appear when textInput is truthy. testInput === {{textInput}}
+        </p>
+
+        <p>... and this one when some characters are typed.</p>
+    </div>
+    <h3>Event input</h3>
+
+    <p>Angular handles events by evaluating JavaScript (like DOM event handlers). The following
+        code will call the scope function <code>buttonClick</code> when the button in pushed. </p>
+    <pre class="cs142-example-code" ng-non-bindable>
+&lt;p&gt;Test button click. &lt;span ng-if="buttonWasClicked"&gt;Last button clicked was: {{buttonWasClicked}}&lt;/span&gt&lt;/p&gt;
+&lt;button ng-click="buttonClick('one')"&gt;Call buttonClick function with one&lt;/button&gt;
+&lt;button ng-click="buttonClick('two')"&gt;Call buttonClick function with two&lt;/button&gt;</pre>
+
+    <div class="cs142-example-output">
+        <p>Test button clicks. <span ng-if="buttonWasClicked">Last button clicked was: {{buttonWasClicked}}</span>
+        </p>
+        <button ng-click="buttonClick('one')">Call buttonClick function with one</button>
+        <button ng-click="buttonClick('two')">Call buttonClick function with two</button>
+    </div>
+</div>

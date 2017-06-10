@@ -1,0 +1,28 @@
+<!doctype html>
+<!--Defined everything in side the html tag to be an angular view template with the
+controller named MainController.-->
+<html ng-app="cs142App" ng-controller="MainController">
+    <head>
+        <!-- Example of setting the page title from the controller. The template can
+        be an expression so we have a default value if the controller doesn't define it-->
+        <title>{{main.title || "CS142 Class Project"}}</title>
+        <!-- Add Angular -->
+        <script src="node_modules/angular/angular.js"></script>
+        <!--Include the main controller (MainController) and stylesheet -->
+        <script src="mainController.js"></script>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+        <!--Include the controllers and models for all the view templates we are using.  Currently
+        that is only the example component.-->
+        <script src="components/example/exampleController.js"></script>
+        <link rel="stylesheet" type="text/css" href="components/example/example.css" />
+        <script src="modelData/example.js"></script>
+    </head>
+    <body>
+        <div class="header">Feynman's site. <span ng-bind="main.motto"></span></div> <!-- Your problem #1 header widget goes here-->
+
+        <!--Include the example view template in this div. This will result in the
+        controller (ExampleController) being started and the template inserted and
+        filled in into the DOM.-->
+        <div ng-include="'components/example/exampleTemplate.html'" ng-controller="ExampleController"></div>
+    </body>
+</html>

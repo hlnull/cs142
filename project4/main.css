@@ -1,0 +1,16 @@
+/*
+CSS for the CS142 project #4 main page
+
+Since CSS uses a global name space for classes we should use class names starting with
+cs142-main- here.
+*/
+
+.motto-update{
+    text-align: left;    
+    /*background: grey;*/
+    box-shadow: grey;
+}
+
+.header {
+    text-align: right;
+}
