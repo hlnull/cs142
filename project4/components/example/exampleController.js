@@ -16,10 +16,9 @@ cs142App.controller('ExampleController', ['$scope', function($scope) {
    // $scope.main is defined if we are a child $scope of the main $scope in which
    // case it contains the page's title property.  We update it so the page title
    // will include this view's name "Example".
-   $scope.motto = '';
    if ($scope.main) {
       $scope.main.title = 'CS142 Project #4 - Example';
-      $scope.main.motto = $scope.motto;
+      $scope.main.motto = "Show me the code";
    }
 
    /*
