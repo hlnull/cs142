@@ -1,2 +1,8 @@
 <!--Replaced this with the Angular template for states component of CS142 Project #4
     Problem #2.-->
+<div>
+    <span>Find your favorite country: <input type="text" ng-model="subString"></span>
+<li ng-repeat="state in statesModel | myfilter:subString">
+    <span>{{ state }}</span>
+</li>
+<div>
