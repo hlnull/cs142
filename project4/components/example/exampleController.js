@@ -48,11 +48,6 @@ cs142App.controller('ExampleController', ['$scope', function($scope) {
       $scope.buttonWasClicked = buttonName;
    };
 
-   /*
-    * name - We read the example model data into the scope variable 'name'
-    */
-   $scope.name = 'feynman';
-
     /*
     * name - We read the example model data into the scope variable 'name'
     */
