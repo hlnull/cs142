@@ -9,8 +9,11 @@
     <link rel="stylesheet" type="text/css" href="components/states/states.css" />
 
     <script src="modelData/states.js"></script>
+    
+    <script src="components/header/headerController.js"></script>
   </head>
   <body>
-  <div ng-include="'components/states/statesTemplate.html'" ng-controller="StatesController"></div>
+    <div ng-include="'components/header/headerTemplate.html'" ng-controller="headerController"></div>
+    <div ng-include="'components/states/statesTemplate.html'" ng-controller="StatesController"></div>
   </body>
 </html>
