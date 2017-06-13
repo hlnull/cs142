@@ -16,8 +16,10 @@ controller named MainController.-->
         <script src="components/example/exampleController.js"></script>
         <link rel="stylesheet" type="text/css" href="components/example/example.css" />
         <script src="modelData/example.js"></script>
+        <script src="components/header/headerController.js"></script>
     </head>
     <body>
+        <div ng-include="'components/header/headerTemplate.html'" ng-controller="headerController"></div>
         <div class="header">Feynman's site. My favorite motto is: <span ng-bind="main.motto"></span>.</div> <!-- Your problem #1 header widget goes here-->
 
         <!--Include the example view template in this div. This will result in the
