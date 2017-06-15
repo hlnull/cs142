@@ -1,3 +1,3 @@
-cs142App.controller('headerController', ['$scope', function($scope) {
+cs142App.controller('HeaderController', ['$scope', function($scope) {
 
 }]);

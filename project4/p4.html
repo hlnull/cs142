@@ -14,6 +14,19 @@
   </head>
   <body>
     <div ng-include="'components/header/headerTemplate.html'" ng-controller="HeaderController"></div>
-    <div ng-include="'components/states/statesTemplate.html'" ng-controller="StatesController"></div>
+    <div ng-controller="myCtrl">
+        <button ng-click="myFunc()">Swith to example</button>
+        <!--<div ng-include="'components/example/exampleTemplate.html'" ng-controller="ExampleController"></div>-->
+    </div>
   </body>
+
+
+<script>
+cs142App.controller('myCtrl', ['$scope', function($scope) {
+    $scope.count = 0;
+    $scope.myFunc = function() {
+        $scope.count++;
+    };
+}]);
+</script>
 </html>

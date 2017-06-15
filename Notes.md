@@ -27,3 +27,7 @@ module.filter('myfilter', function() {
     <span>{{ state }}</span>
 </li>
 ```
+
++ 实现switch view：
+  考虑ngroute：https://docs.angularjs.org/api/ngRoute/service/$route#example
+
