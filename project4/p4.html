@@ -9,7 +9,8 @@
     <script src="components/states/statesController.js"></script>
     <link rel="stylesheet" type="text/css" href="components/states/states.css" />
 
-    <script src="modelData/states.js"></script>
+    <script src="modelData/example.js"></script>
+      <script src="modelData/states.js"></script>
       <script src="components/header/headerController.js"></script>
 
       <script src="components/example/exampleController.js"></script>
@@ -18,11 +19,16 @@
   <body>
     <div ng-include="'components/header/headerTemplate.html'" ng-controller="HeaderController"></div>
     <div ng-controller="MainController">
-        <!--<button ng-click="myFunc()">Swith to example</button>-->
-        <a href="/example">example</a>
-        <a href="/states">states</a>
-        <div ng-view></div>
-        <!--<div ng-include="'components/example/exampleTemplate.html'" ng-controller="ExampleController"></div>-->
+        <button ng-click="update()" >Switch to {{curViewName}}</button>
+        <!--<div ng-view="curView"></div>-->
+        <div ng-switch="curViewName">
+            <div ng-switch-when="Example">
+                <div ng-include="'components/example/exampleTemplate.html'" ng-controller="ExampleController"></div>
+            </div>
+            <div ng-switch-when="States">
+                <div ng-include="'components/states/statesTemplate.html'" ng-controller="StatesController"></div>
+            </div>
+        </div>
     </div>
   </body>
 

@@ -16,7 +16,27 @@ cs142App.controller('MainController', ['$scope', function($scope) {
    // by the html view template to get the page's title in the browser tab.
    $scope.main = {};
    $scope.main.title = 'CS142 Project #4';
-// }]);
+   $scope.curViewName = "Example";
+   $scope.curView = "components/example/exampleTemplate.html";
+   $scope.bStates = false;
+   $scope.update = function() {
+       if ($scope.bStates) {
+           $scope.curViewName = "Example";
+           $scope.curView = "components/example/exampleTemplate.html";
+       } else {
+           $scope.curViewName = "States";
+           $scope.curView = "components/states/statesTemplate.html";
+       }
+       $scope.bStates = !$scope.bStates;
+   };
+// }]).controller("SwitchController", ['$scope', function() {
+//     var self = this;
+//     self.curViewName = "Example";
+//
+//     self.update = function() {
+//         // console.log("update");
+//     };
+
 }]).config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
       $routeProvider
