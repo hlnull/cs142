@@ -31,3 +31,5 @@ module.filter('myfilter', function() {
 + 实现switch view：
   考虑ngroute：https://docs.angularjs.org/api/ngRoute/service/$route#example
 
++ route:
+  templateUrl使用文件，controller使用controller name. 
