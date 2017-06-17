@@ -3,30 +3,27 @@
   <head>
     <title>{{main.title || "CS142 Class Project"}}</title>
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
     <script src="mainController.js"></script>
 
     <script src="components/states/statesController.js"></script>
     <link rel="stylesheet" type="text/css" href="components/states/states.css" />
 
     <script src="modelData/states.js"></script>
+      <script src="components/header/headerController.js"></script>
 
-    <script src="components/header/headerController.js"></script>
+      <script src="components/example/exampleController.js"></script>
+      <link rel="stylesheet" type="text/css" href="components/example/example.css" />
   </head>
   <body>
     <div ng-include="'components/header/headerTemplate.html'" ng-controller="HeaderController"></div>
-    <div ng-controller="myCtrl">
-        <button ng-click="myFunc()">Swith to example</button>
+    <div ng-controller="MainController">
+        <!--<button ng-click="myFunc()">Swith to example</button>-->
+        <a href="/example">example</a>
+        <a href="/states">states</a>
+        <div ng-view></div>
         <!--<div ng-include="'components/example/exampleTemplate.html'" ng-controller="ExampleController"></div>-->
     </div>
   </body>
 
-
-<script>
-cs142App.controller('myCtrl', ['$scope', function($scope) {
-    $scope.count = 0;
-    $scope.myFunc = function() {
-        $scope.count++;
-    };
-}]);
-</script>
 </html>
