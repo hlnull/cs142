@@ -17,28 +17,19 @@ cs142App.controller('MainController', ['$scope', function($scope) {
    $scope.main = {};
    $scope.main.title = 'CS142 Project #4';
    $scope.curViewName = "Example";
-   $scope.curView = "components/example/exampleTemplate.html";
    $scope.bStates = false;
    $scope.update = function() {
        if ($scope.bStates) {
            $scope.curViewName = "Example";
-           $scope.curView = "components/example/exampleTemplate.html";
        } else {
            $scope.curViewName = "States";
-           $scope.curView = "components/states/statesTemplate.html";
        }
        $scope.bStates = !$scope.bStates;
    };
-// }]).controller("SwitchController", ['$scope', function() {
-//     var self = this;
-//     self.curViewName = "Example";
-//
-//     self.update = function() {
-//         // console.log("update");
-//     };
+}]);
 
-}]).config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+cs142App.config(['$routeProvider',
+    function($routeProvider) {
       $routeProvider
         .when('/example', {
             templateUrl: 'components/example/exampleTemplate.html',
@@ -48,10 +39,7 @@ cs142App.controller('MainController', ['$scope', function($scope) {
           templateUrl: 'components/states/statesTemplate.html',
           controller: 'StatesController'
         })
-        .otherwise(
-          {
-             redirectTo: '/'
-          });
-      // $locationProvider.html5Mode(true);
-       $locationProvider.html5Mode({ enabled: true, requireBase: false });
+        .otherwise({
+             redirectTo: '/example'
+        });
   }]);
