@@ -33,3 +33,5 @@ module.filter('myfilter', function() {
 
 + route:
   templateUrl使用文件，controller使用controller name. 
+
++ week5 的build web application讲述了如何利用AngularJS material设计web app界面。可参考：https://material.angularjs.org/latest/ .
