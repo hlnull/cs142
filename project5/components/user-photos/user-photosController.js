@@ -11,5 +11,6 @@ cs142App.controller('UserPhotosController', ['$scope', '$routeParams',
 
     console.log('window.cs142models.photoOfUserModel($routeParams.userId)',
        window.cs142models.photoOfUserModel(userId));
+    $scope.photos = window.cs142models.photoOfUserModel(userId);
 
   }]);

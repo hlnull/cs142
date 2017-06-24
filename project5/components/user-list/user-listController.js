@@ -5,5 +5,7 @@ cs142App.controller('UserListController', ['$scope',
         $scope.main.title = 'Users';
 
         console.log('window.cs142models.userListModel()', window.cs142models.userListModel());
+
+        $scope.users = window.cs142models.userListModel();
     }]);
 

@@ -11,5 +11,6 @@ cs142App.controller('UserDetailController', ['$scope', '$routeParams',
 
     console.log('window.cs142models.userModel($routeParams.userId)',
         window.cs142models.userModel(userId));
+    $scope.user = window.cs142models.userModel(userId);
 
   }]);
