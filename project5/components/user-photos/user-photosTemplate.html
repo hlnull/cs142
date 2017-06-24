@@ -1,3 +1,6 @@
 <div ng-repeat="photo in photos">
     <img ng-src="images/{{photo.file_name}}" flex>
+    <div ng-repeat="comment in photo.comments">
+        <p>{{comment.user.first_name}} {{comment.user.last_name}}: {{comment.comment}}</p>
+    </div>
 </div>
