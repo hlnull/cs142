@@ -2,3 +2,5 @@ lecture pdfs
 node_modules
 .jshintrc
 *.json
+*.zip
+
